@@ -81,22 +81,22 @@ Input(8) → Dense(64, ReLU) → Dropout(0.3)
 
 | Metric | Value |
 |---|---|
-| **Test Accuracy** | **70.78%** |
-| **Test Loss** | 0.5064 |
-| **Precision** | 0.5849 |
-| **Recall** | 0.5741 |
-| **F1-Score** | 0.5794 |
-| **AUC Score** | **0.8067** |
+| **Test Accuracy** | **72.08%** |
+| **Test Loss** | 0.5333 |
+| **Precision** | 0.6122 |
+| **Recall** | 0.5556 |
+| **F1-Score** | 0.5825 |
+| **AUC Score** | **0.8081** |
 
 ### Confusion Matrix
 
 |  | Predicted: No Diabetes | Predicted: Diabetes |
 |---|---|---|
-| **Actual: No Diabetes** | 78 (TN) | 22 (FP) |
-| **Actual: Diabetes** | 23 (FN) | 31 (TP) |
+| **Actual: No Diabetes** | 81 (TN) | 19 (FP) |
+| **Actual: Diabetes** | 24 (FN) | 30 (TP) |
 
-> The AUC of **0.807** indicates strong discriminative ability, well above random (0.5).  
-> The 70.78% accuracy is within the expected 70–78% range for this dataset.
+> The AUC of **0.808** indicates strong discriminative ability, well above random (0.5).  
+> The 72.08% accuracy is within the expected 70–78% range for this dataset.
 
 ---
 
@@ -135,6 +135,6 @@ The Pima Indians Diabetes dataset is a well-known benchmark that is harder than 
 2. **Class imbalance** — with only 35% positive cases, a naive classifier that always predicts "No Diabetes" would achieve ~65% accuracy; our model must learn to identify the minority class.
 3. **Limited features** — only 8 features describe complex metabolic interactions, placing a hard ceiling on achievable accuracy.
 
-The chosen architecture with **Dropout regularization** addresses the overfitting risk that comes with 614 training samples. The training curves confirm healthy learning: validation accuracy plateaus around 80% while training accuracy converges toward it, and early stopping fired at epoch 24 (out of max 100), preventing unnecessary overfitting.
+The chosen architecture with **Dropout regularization** addresses the overfitting risk that comes with 614 training samples. The training curves confirm healthy learning: validation accuracy plateaus around 80% while training accuracy converges toward it, and early stopping fired at epoch 34 (out of max 100), preventing unnecessary overfitting.
 
-The **AUC of 0.807** is the most informative metric here: it measures the model's ability to rank diabetic patients above non-diabetic ones across all thresholds, independent of the classification cutoff. This result is competitive with published baselines on this dataset (~0.80–0.84 AUC range).
+The **AUC of 0.808** is the most informative metric here: it measures the model's ability to rank diabetic patients above non-diabetic ones across all thresholds, independent of the classification cutoff. This result is competitive with published baselines on this dataset (~0.80–0.84 AUC range).
